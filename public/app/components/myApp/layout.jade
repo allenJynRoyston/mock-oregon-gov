@@ -1,0 +1,289 @@
+//output:layout.html
+.ui.sidebar.inverted.vertical.menu
+  a.item(*ngFor="let nav of _public.navBar")
+    | {{nav.title}}
+.pusher.dimmed
+  // Site content !
+
+  // HEADER (DESKTOP)
+  #body-header.ui.fixed.inverted.menu.bg-green.tablet.hidden.mobile.vanish
+    .ui.container
+      .ui.simple.item(href='#')
+        img.logo(src='assets/images/logo.png' style='width: auto; height: 50px')
+      .ui.simple.dropdown.item(*ngFor="let nav of _public.navBar")
+        | {{nav.title}} 
+        i.dropdown.icon
+        .menu
+          a.item(*ngFor="let drop of nav.dropdown; let i = index") 
+            | {{drop.title}}
+          .divider
+          .header {{nav.subTitle}}
+          .item
+            i.dropdown.fa.fa-arrow-circle-o-right
+            | &nbsp;&nbsp;Services
+            .menu
+              a.item(*ngFor="let subDrop of nav.subDropdown; let i = index") 
+                | {{subDrop.title}}
+  
+  // TABLET/MOBILE HEADER
+  .mobile.or.tablet.only
+    .row.bg-green(style='padding: 10px')
+      center 
+        button.ui.button.circular.inverted.basic(ui-sidebar [options]="{selector: '.sidebar', animation: 'scale down'}")
+          i.fa.fa-bars
+              
+  // RAILS
+  .mobile.or.lower.hidden
+    .ui.left.dividing.rail.tablet.hidden.mobile.vanish
+        #home-main-menu
+          p.cursor(*ngFor="let m of _public.mainMenu", (click)="scrollTo(m.scrollTo)")
+            i([ngClass]="m.icon")
+            | &nbsp;&nbsp;{{m.title}}
+    .ui.right.dividing.rail.tablet.hidden.mobile.vanish
+        #help-bar
+          .ui.search.help-bar-input
+            input.prompt(placeholder='Search...')         
+
+   
+  // BODY (CONTENT)              
+  #body-content.ui.main.text.container(style='min-height: 800px')
+    
+    .mobile.or.tablet.only
+      center
+        img.logo(src='assets/images/logo.png' style='width: auto; height: 50px')
+  
+    // TOP SERVICES
+    #id-top-services.ui.container
+      .space-block-50
+      .ui.segment
+        h2.ui.header Features
+        .ui.three.column.grid.stackable.doubling        
+            .column(*ngFor="let c of _public.content; let i = index")
+              .ui.card.fluid.cursor
+                .blurring.dimmable.image(ui-dimmer [options]="{on: 'hover'}")
+                  .ui.dimmer
+                    .content
+                      .center
+                        {{c.meta}}
+                  img.img-responsive(src='https://lorempixel.com/300/200/business/{{i + 1}}')
+                .content(style='height: 75px')
+                  a.header {{c.title}}
+
+    // MAPS
+    #id-maps.ui.container
+      .space-block-50
+      .ui.segment
+        h2.ui.header Maps
+        .ui.one.column.grid.stackable.doubling        
+            .column
+              .ui.special.cards.cursor
+                .card(style='width: 100%')
+                  img.img-responsive(src='assets/images/home_map_graphic-lg.jpeg') 
+
+    
+    // FEATURES
+    #id-features.ui.container
+      .space-block-50
+      .ui.segment
+        h2.ui.header Features
+        .ui.three.column.grid.stackable.doubling        
+            .column(*ngFor="let c of _public.features")
+              .ui.card.fluid.cursor
+                .blurring.dimmable.image(ui-dimmer [options]="{on: 'hover'}")
+                  .ui.dimmer
+                    .content
+                      .center
+                        {{c.meta}}
+                  img.img-responsive(src='{{c.image}}')
+                .content(style='height: 75px')
+                  a.header {{c.title}}
+                .extra.content
+                  | Rating: 
+                  .ui.star.rating(ui-rating [options]="{initialRating: c.stars, maxRating: 10, interactive: true}")
+
+    // PAYMENTS
+    #id-payments.ui.container
+      .space-block-50
+      .ui.segment
+        h2.ui.header Payments
+          .ui.grid.internally.celled.stackable.equal.width
+              .column
+                button.ui.button.green.fluid            
+                  | View All Payment Services
+                .mobile.vanish
+                  br
+                  img.img-responsive(src='assets/images/payments_feature.jpg')
+                  br
+                h5
+                  a.cursor Payroll Taxes
+                  p Pay combined payroll taxes, corporate excise and income taxes.
+              .column
+                h2 Business
+                h5
+                  a.cursor(*ngFor="let c of _public.payments.business")
+                    | {{c.title}}
+                    br
+                    br
+                hr
+                h2 Courts
+                h5
+                  a.cursor(*ngFor="let c of _public.payments.courts")
+                    | {{c.title}}
+                    br
+                    br                  
+              .column
+                h2 Licensing
+                h5
+                  a.cursor(*ngFor="let c of _public.payments.licensing")
+                    | {{c.title}}
+                    br
+                    br
+                hr
+                h2 Taxes
+                h5
+                  a.cursor(*ngFor="let c of _public.payments.taxes")
+                    | {{c.title}}
+                    br
+                    br   
+    
+    // LICENSES
+    #id-licenses.ui.container
+      .space-block-50
+      .ui.segment
+        h2.ui.header Licenses
+          .ui.grid.internally.celled.stackable.equal.width
+              .column
+                button.ui.button.green.fluid            
+                  | View All License Service
+                .mobile.vanish
+                  br
+                  img.img-responsive(src='assets/images/licenses_feature.jpg')
+                  br
+                h5
+                  a.cursor Construction Contractors Board Licensing Information
+                  p Apply or renew a contractor's license
+              .column
+                h2 DMV
+                h5
+                  a.cursor(*ngFor="let c of _public.licenses.dmv")
+                    | {{c.title}}
+                    br
+                    br
+                hr
+                h2 Forms
+                h5
+                  a.cursor(*ngFor="let c of _public.licenses.forms")
+                    | {{c.title}}
+                    br
+                    br                  
+              .column
+                h2 Business
+                h5
+                  a.cursor(*ngFor="let c of _public.licenses.business")
+                    | {{c.title}}
+                    br
+                    br
+                hr
+                h2 Recreation
+                h5
+                  a.cursor(*ngFor="let c of _public.licenses.recreation")
+                    | {{c.title}}
+                    br
+                    br   
+
+    
+    // DRIVERS
+    #id-drivers.ui.container
+      .space-block-50
+      .ui.segment
+        h2.ui.header Drivers
+          .ui.grid.internally.celled.stackable.equal.width
+              .column
+                button.ui.button.green.fluid            
+                  | View All Driver Service
+                .mobile.vanish
+                  br
+                  img.img-responsive(src='assets/images/driver.jpg')
+                  br
+                h5
+                  a.cursor Application for Title and Registration
+                  p Use this form to apply for title and registration for your vehicle.
+              .column
+                h2 DMV
+                h5
+                  a.cursor(*ngFor="let c of _public.drivers.forms")
+                    | {{c.title}}
+                    br
+                    br
+                hr
+                h2 Forms
+                h5
+                  a.cursor(*ngFor="let c of _public.drivers.recreation")
+                    | {{c.title}}
+                    br
+                    br                  
+              .column
+                h2 Business
+                h5
+                  a.cursor(*ngFor="let c of _public.drivers.information")
+                    | {{c.title}}
+                    br
+                    br
+                hr
+                h2 Recreation
+                h5
+                  a.cursor(*ngFor="let c of _public.drivers.travel")
+                    | {{c.title}}
+                    br
+                    br   
+    
+    
+    // MyOregon
+    #id-myOregon.ui.container
+      .space-block-50
+      .ui.segment
+        h2.ui.header #myOregon  
+        h5 
+          | Let's celebrate Oregon's beauty. Add #MyOregon to your photos on Instagram for a chance to see them here. Check back often to see if your photos get featured!
+        br
+        .ui.three.column.grid.stackable.doubling        
+            .column(*ngFor="let c of _public.myOregon; let i = index")
+              .ui.card.fluid.cursor(ui-modal [options]="{selector: '#image-viewer'}", (click)="setModalImage(c)")
+                .image
+                  img.img-responsive(src='{{c.image}}')
+                .content(style='height: 75px')
+                  a.header {{c.title}}
+                  .meta
+                    span.date Taken by: 
+                      strong {{c.credit}}
+    .space-block-100
+
+
+
+  // FOOTER  
+  .ui.inverted.vertical.footer.segment.bg-green
+    .ui.center.aligned.container
+      .ui.stackable.inverted.divided.grid
+        .three.wide.column(*ngFor="let foot of _public.footer")
+          h4.ui.inverted.header {{foot.title}}
+          .ui.inverted.link.list
+            a.item(*ngFor="let l of foot.links; let i = index") 
+              | {{l.title}}
+      .ui.inverted.section.divider
+      img.ui.centered.mini.image(style='width: auto; height: 100%', src='assets/images/logo.png')
+      .ui.horizontal.inverted.small.divided.link.list
+        a.item(*ngFor="let sf of _public.subFooter; let i = index") 
+          | {{sf.title}}
+
+
+
+  #image-viewer.ui.modal
+    i.close.fa.fa-close
+    .header {{modalImage.title}}
+      small &nbsp; by
+        strong &nbsp; {{modalImage.credit}} 
+    .image.content
+      .image
+        img(src="{{modalImage.image}}")
+      .description
+        | Description of image
