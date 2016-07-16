@@ -5,7 +5,7 @@
   <!-- HEADER (DESKTOP)-->
   <div id="body-header" class="ui fixed inverted menu bg-green tablet hidden mobile vanish">
     <div class="ui container">
-      <div href="#" class="ui simple item"><img src="assets/images/logo.png" style="width: auto; height: 50px" class="logo"/></div>
+      <div class="ui simple item"><img src="assets/images/logo.png" style="width: auto; height: 50px" class="logo"/></div>
       <div *ngFor="let nav of _public.navBar" class="ui simple dropdown item">{{nav.title}} <i class="dropdown icon"></i>
         <div class="menu"><a *ngFor="let drop of nav.dropdown; let i = index" class="item">
              
@@ -18,6 +18,9 @@
                 {{subDrop.title}}</a></div>
           </div>
         </div>
+      </div>
+      <div class="ui simple item">
+        <button class="ui button brown"><i class="fa fa-book"></i>&nbsp; Agency Directory</button>
       </div>
     </div>
   </div>

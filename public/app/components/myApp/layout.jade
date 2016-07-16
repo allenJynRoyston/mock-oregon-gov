@@ -8,7 +8,7 @@
   // HEADER (DESKTOP)
   #body-header.ui.fixed.inverted.menu.bg-green.tablet.hidden.mobile.vanish
     .ui.container
-      .ui.simple.item(href='#')
+      .ui.simple.item
         img.logo(src='assets/images/logo.png' style='width: auto; height: 50px')
       .ui.simple.dropdown.item(*ngFor="let nav of _public.navBar")
         | {{nav.title}} 
@@ -24,7 +24,11 @@
             .menu
               a.item(*ngFor="let subDrop of nav.subDropdown; let i = index") 
                 | {{subDrop.title}}
-  
+      .ui.simple.item
+          button.ui.button.brown
+            i.fa.fa-book
+            | &nbsp; Agency Directory
+             
   // TABLET/MOBILE HEADER
   .mobile.or.tablet.only
     .row.bg-green(style='padding: 10px')
