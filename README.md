@@ -1,24 +1,12 @@
 # Mock Oregon.gov website
 
-Install includes:
+Technologies used:
   - Express 4.0 
   - Angular 2 
-  - Grunt (optional)
-  - File watching and automatic browser refresh (if grunt is running)
-
-Express side:
-  - Built in mobile/iPad/OS user detection (accessible throughtout the entire site)
-  - Quick API and routing setup
+  - Grunt
   - Jade templating
-  
-Angular 2 side:
-  - Built in mobile/iPad/OS user detection (accessible globally)
-  - Quick API and routing setup
-   
-Required:
-  - NPM (Node Package Manager)
-  - Atom editor *recommended, but not required (for easy Jade -> HTML auto compiling)
-  - Typescript *recommended, but again not required.
+  - Semantic-UI Framework
+  - Typescript
 
 Install instructions:
   - Clone this repo
