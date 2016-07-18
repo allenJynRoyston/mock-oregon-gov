@@ -2,7 +2,7 @@
 exports.home = function(req, res){
 
 	res.render('index', {
-		title: 'Express/Semantic/Angular2 Boilerplate',
+		title: 'Oregon Gov (Mockup)',
 		enviroment: req.device.enviroment,
 		isMobile: 	req.device.isMobile,
 		isIphone: 	req.device.isIphone,

@@ -52,8 +52,8 @@
     <div class="mobile or tablet only">
       <center><img src="assets/images/logo.png" style="width: auto; height: 50px" class="logo"/></center>
     </div>
-    <!-- TOP SERVICES-->
-    <div id="id-top-services" class="ui container">
+    <!-- TOP SERVICES (DESKTOP)-->
+    <div id="id-top-services" [ngClass]="{true: &quot;hide&quot;}[_public.isMobile]" class="ui container">
       <div class="space-block-50"></div>
       <div class="ui segment">
         <h2 class="ui header">Features</h2>
@@ -65,7 +65,7 @@
                   <div class="content">
                     <div class="center">{{c.meta}}</div>
                   </div>
-                </div><img src="https://lorempixel.com/300/200/business/{{i + 1}}" class="img-responsive"/>
+                </div><img src="http://lorempixel.com/300/200/business/{{i + 1}}" class="img-responsive"/>
               </div>
               <div style="height: 75px" class="content"><a class="header">{{c.title}}</a></div>
             </div>
@@ -73,8 +73,20 @@
         </div>
       </div>
     </div>
+    <!-- TOP SERVICES (MOBILE)-->
+    <div id="id-top-services" [ngClass]="{false: &quot;hide&quot;}[_public.isMobile]">
+      <div class="space-block-50"></div>
+      <center>
+        <h2 class="ui header">Features</h2>
+        <div class="space-block-10"></div>
+      </center>
+      <div ui-accordian="ui-accordian" [options]="{exclusive: false, duration: 250}" *ngFor="let c of _public.content; let i = index" class="ui styled accordion">
+        <div class="title"><i class="dropdown icon"></i>{{c.title}}</div>
+        <div class="content"> <a>{{c.meta}}</a></div>
+      </div>
+    </div>
     <!-- MAPS-->
-    <div id="id-maps" class="ui container">
+    <div id="id-maps" [ngClass]="{true: &quot;hide&quot;}[_public.isMobile]" class="ui container">
       <div class="space-block-50"></div>
       <div class="ui segment">
         <h2 class="ui header">Maps</h2>
@@ -87,8 +99,20 @@
         </div>
       </div>
     </div>
+    <!-- MAPS (MOBILE)-->
+    <div id="id-maps" [ngClass]="{false: &quot;hide&quot;}[_public.isMobile]">
+      <div class="space-block-50"></div>
+      <center>
+        <h2 class="ui header">Maps</h2>
+        <div class="space-block-10"></div>
+      </center>
+      <div ui-accordian="ui-accordian" [options]="{exclusive: false, duration: 250}" class="ui styled accordion">
+        <div class="title"><i class="dropdown icon"></i>Find Stuff to do in Oregon!</div>
+        <div class="content"> <img src="assets/images/home_map_graphic-lg.jpeg" class="img-responsive"/></div>
+      </div>
+    </div>
     <!-- FEATURES-->
-    <div id="id-features" class="ui container">
+    <div id="id-features" [ngClass]="{true: &quot;hide&quot;}[_public.isMobile]" class="ui container">
       <div class="space-block-50"></div>
       <div class="ui segment">
         <h2 class="ui header">Features</h2>
@@ -111,8 +135,23 @@
         </div>
       </div>
     </div>
+    <!-- MAPS (MOBILE)-->
+    <div id="id-features" [ngClass]="{false: &quot;hide&quot;}[_public.isMobile]">
+      <div class="space-block-50"></div>
+      <center>
+        <h2 class="ui header">Features</h2>
+        <div class="space-block-10"></div>
+      </center>
+      <div ui-accordian="ui-accordian" [options]="{exclusive: false, duration: 250}" *ngFor="let c of _public.features" class="ui styled accordion">
+        <div class="title"><i class="dropdown icon"></i>{{c.title}}</div>
+        <div class="content"> <a>{{c.meta}}</a>
+          <hr/>
+          <div ui-rating="ui-rating" [options]="{initialRating: c.stars, maxRating: 10, interactive: true}" class="ui star rating"></div>
+        </div>
+      </div>
+    </div>
     <!-- PAYMENTS-->
-    <div id="id-payments" class="ui container">
+    <div id="id-payments" [ngClass]="{true: &quot;hide&quot;}[_public.isMobile]" class="ui container">
       <div class="space-block-50"></div>
       <div class="ui segment">
         <h2 class="ui header">Payments
@@ -145,8 +184,30 @@
         </h2>
       </div>
     </div>
+    <!-- PAYMENTS (MOBILE)-->
+    <div id="id-payments" [ngClass]="{false: &quot;hide&quot;}[_public.isMobile]">
+      <div class="space-block-50"></div>
+      <center>
+        <h2 class="ui header">Payments</h2>
+        <div class="space-block-10"></div>
+      </center>
+      <div ui-accordian="ui-accordian" [options]="{exclusive: false, duration: 250}" class="ui styled accordion">
+        <div class="title"><i class="dropdown icon"></i>    Business</div>
+        <div class="content">         <small><a *ngFor="let c of _public.payments.business"><i class="fa fa-file"></i>&nbsp;&nbsp;{{c.title}}
+              <hr/></a></small></div>
+        <div class="title"><i class="dropdown icon"></i>    Courts</div>
+        <div class="content">         <small><a *ngFor="let c of _public.payments.courts"><i class="fa fa-file"></i>&nbsp;&nbsp;{{c.title}}
+              <hr/></a></small></div>
+        <div class="title"><i class="dropdown icon"></i>    Licensing</div>
+        <div class="content">         <small><a *ngFor="let c of _public.payments.licensing"><i class="fa fa-file"></i>&nbsp;&nbsp;{{c.title}}
+              <hr/></a></small></div>
+        <div class="title"><i class="dropdown icon"></i>    Courts</div>
+        <div class="content">         <small><a *ngFor="let c of _public.payments.courts"><i class="fa fa-file"></i>&nbsp;&nbsp;{{c.title}}
+              <hr/></a></small></div>
+      </div>
+    </div>
     <!-- LICENSES-->
-    <div id="id-licenses" class="ui container">
+    <div id="id-licenses" [ngClass]="{true: &quot;hide&quot;}[_public.isMobile]" class="ui container">
       <div class="space-block-50"></div>
       <div class="ui segment">
         <h2 class="ui header">Licenses
@@ -179,8 +240,30 @@
         </h2>
       </div>
     </div>
+    <!-- PAYMENTS (MOBILE)-->
+    <div id="id-licenses" [ngClass]="{false: &quot;hide&quot;}[_public.isMobile]">
+      <div class="space-block-50"></div>
+      <center>
+        <h2 class="ui header">Licenses</h2>
+        <div class="space-block-10"></div>
+      </center>
+      <div ui-accordian="ui-accordian" [options]="{exclusive: false, duration: 250}" class="ui styled accordion">
+        <div class="title"><i class="dropdown icon"></i>    DMV</div>
+        <div class="content">         <small><a *ngFor="let c of _public.licenses.dmv"><i class="fa fa-file"></i>&nbsp;&nbsp;{{c.title}}
+              <hr/></a></small></div>
+        <div class="title"><i class="dropdown icon"></i>    Forms</div>
+        <div class="content">         <small><a *ngFor="let c of _public.licenses.forms"><i class="fa fa-file"></i>&nbsp;&nbsp;{{c.title}}
+              <hr/></a></small></div>
+        <div class="title"><i class="dropdown icon"></i>    Business</div>
+        <div class="content">         <small><a *ngFor="let c of _public.licenses.business"><i class="fa fa-file"></i>&nbsp;&nbsp;{{c.title}}
+              <hr/></a></small></div>
+        <div class="title"><i class="dropdown icon"></i>    Recreation</div>
+        <div class="content">         <small><a *ngFor="let c of _public.licenses.recreation"><i class="fa fa-file"></i>&nbsp;&nbsp;{{c.title}}
+              <hr/></a></small></div>
+      </div>
+    </div>
     <!-- DRIVERS-->
-    <div id="id-drivers" class="ui container">
+    <div id="id-drivers" [ngClass]="{true: &quot;hide&quot;}[_public.isMobile]" class="ui container">
       <div class="space-block-50"></div>
       <div class="ui segment">
         <h2 class="ui header">Drivers
@@ -196,25 +279,47 @@
               </h5>
             </div>
             <div class="column">
-              <h2>DMV</h2>
+              <h2>Forms</h2>
               <h5><a *ngFor="let c of _public.drivers.forms" class="cursor">{{c.title}}<br/><br/></a></h5>
               <hr/>
-              <h2>Forms</h2>
+              <h2>Recreation</h2>
               <h5><a *ngFor="let c of _public.drivers.recreation" class="cursor">{{c.title}}<br/><br/></a></h5>
             </div>
             <div class="column">
-              <h2>Business</h2>
+              <h2>Information</h2>
               <h5><a *ngFor="let c of _public.drivers.information" class="cursor">{{c.title}}<br/><br/></a></h5>
               <hr/>
-              <h2>Recreation</h2>
+              <h2>Travel</h2>
               <h5><a *ngFor="let c of _public.drivers.travel" class="cursor">{{c.title}}<br/><br/></a></h5>
             </div>
           </div>
         </h2>
       </div>
     </div>
+    <!-- DRIVERS (MOBILE)-->
+    <div id="id-drivers" [ngClass]="{false: &quot;hide&quot;}[_public.isMobile]">
+      <div class="space-block-50"></div>
+      <center>
+        <h2 class="ui header">Drivers</h2>
+        <div class="space-block-10"></div>
+      </center>
+      <div ui-accordian="ui-accordian" [options]="{exclusive: false, duration: 250}" class="ui styled accordion">
+        <div class="title"><i class="dropdown icon"></i>    Forms</div>
+        <div class="content">         <small><a *ngFor="let c of _public.drivers.forms"><i class="fa fa-file"></i>&nbsp;&nbsp;{{c.title}}
+              <hr/></a></small></div>
+        <div class="title"><i class="dropdown icon"></i>    Recreation</div>
+        <div class="content">         <small><a *ngFor="let c of _public.drivers.recreation"><i class="fa fa-file"></i>&nbsp;&nbsp;{{c.title}}
+              <hr/></a></small></div>
+        <div class="title"><i class="dropdown icon"></i>    Information</div>
+        <div class="content">         <small><a *ngFor="let c of _public.drivers.information"><i class="fa fa-file"></i>&nbsp;&nbsp;{{c.title}}
+              <hr/></a></small></div>
+        <div class="title"><i class="dropdown icon"></i>    Travel</div>
+        <div class="content">         <small><a *ngFor="let c of _public.drivers.travel"><i class="fa fa-file"></i>&nbsp;&nbsp;{{c.title}}
+              <hr/></a></small></div>
+      </div>
+    </div>
     <!-- MyOregon-->
-    <div id="id-myOregon" class="ui container">
+    <div id="id-myOregon" [ngClass]="{true: &quot;hide&quot;}[_public.isMobile]" class="ui container">
       <div class="space-block-50"></div>
       <div class="ui segment">
         <h2 class="ui header">#myOregon  </h2>
@@ -224,7 +329,7 @@
         </h5><br/>
         <div class="ui three column grid stackable doubling">       
           <div *ngFor="let c of _public.myOregon; let i = index" class="column">
-            <div ui-modal="ui-modal" [options]="{selector: '#image-viewer'}" (click)="setModalImage(c)" class="ui card fluid cursor">
+            <div ui-modal-action="ui-modal-action" [options]="{selector: '#image-viewer', transition: 'fly left'}" (click)="setModalImage(c)" class="ui card fluid cursor">
               <div class="image"><img src="{{c.image}}" class="img-responsive"/></div>
               <div style="height: 75px" class="content"><a class="header">{{c.title}}</a>
                 <div class="meta"><span class="date">Taken by: <strong>{{c.credit}}</strong></span></div>
@@ -234,8 +339,22 @@
         </div>
       </div>
     </div>
-    <div class="space-block-100"></div>
+    <!-- #myOregon (MOBILE)-->
+    <div id="id-myOregon" [ngClass]="{false: &quot;hide&quot;}[_public.isMobile]">
+      <div class="space-block-50"></div>
+      <center>
+        <h2 class="ui header">#myOregon</h2>
+        <div class="space-block-10"></div>
+      </center>
+      <div ui-accordian="ui-accordian" [options]="{exclusive: false, duration: 250}" class="ui styled accordion">
+        <div class="title"> <i class="dropdown icon">         </i>Check it out!</div>
+        <div class="content"> 
+          <div *ngFor="let c of _public.myOregon; let i = index" ui-modal-action="ui-modal-action" [options]="{selector: '#image-viewer', transition: 'fly left'}" (click)="setModalImage(c)" class="image">{{c.title}}<img src="{{c.image}}" class="img-responsive"/></div>
+        </div>
+      </div>
+    </div>
   </div>
+  <div class="space-block-100"></div>
   <!-- FOOTER  -->
   <div class="ui inverted vertical footer segment bg-green">
     <div class="ui center aligned container">
@@ -253,10 +372,10 @@
           {{sf.title}}</a></div>
     </div>
   </div>
-  <div id="image-viewer" class="ui modal"><i class="close fa fa-close"></i>
+  <div id="image-viewer" ui-modal="ui-modal" [options]="{closable: false, transition: 'fly left', duration: 250}" class="ui modal"><i class="close fa fa-close"></i>
     <div class="header">{{modalImage.title}}<small>&nbsp; by<strong>&nbsp; {{modalImage.credit}} </strong></small></div>
     <div class="image content">
-      <div class="image"><img src="{{modalImage.image}}"/></div>
+      <div class="image"><img src="{{modalImage.image}}" class="img-responsive"/></div>
       <div class="description">Description of image</div>
     </div>
   </div>

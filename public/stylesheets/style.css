@@ -7,6 +7,16 @@ a {
   text-decoration: none;
 }
 
+.space-block-10{
+  width: 100%;
+  height: 10px;
+}
+
+.space-block-25{
+  width: 100%;
+  height: 25px;
+}
+
 .space-block-50{
     width: 100%;
     height: 50px;

@@ -66,8 +66,11 @@ html
   body
     // angular 2 renders here
     my-app
-      p Loading...
-  
+      center
+        br
+        br
+        i.fa.fa-spinner.fa-pulse.fa-3x.fa-fw
+
   // init and declare globals
   script(type='text/javascript').
     System.import('app').catch(function(err){ console.error(err); });  

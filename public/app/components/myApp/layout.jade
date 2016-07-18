@@ -52,12 +52,14 @@
   // BODY (CONTENT)              
   #body-content.ui.main.text.container(style='min-height: 800px')
     
+    
+
     .mobile.or.tablet.only
       center
         img.logo(src='assets/images/logo.png' style='width: auto; height: 50px')
   
-    // TOP SERVICES
-    #id-top-services.ui.container
+    // TOP SERVICES (DESKTOP)
+    #id-top-services.ui.container([ngClass]='{true: "hide"}[_public.isMobile]')
       .space-block-50
       .ui.segment
         h2.ui.header Features
@@ -69,12 +71,27 @@
                     .content
                       .center
                         {{c.meta}}
-                  img.img-responsive(src='https://lorempixel.com/300/200/business/{{i + 1}}')
+                  img.img-responsive(src='http://lorempixel.com/300/200/business/{{i + 1}}')
                 .content(style='height: 75px')
                   a.header {{c.title}}
-
+    
+    // TOP SERVICES (MOBILE)
+    #id-top-services([ngClass]='{false: "hide"}[_public.isMobile]')
+      .space-block-50
+      center
+        h2.ui.header Features
+        .space-block-10
+      .ui.styled.accordion(ui-accordian [options]="{exclusive: false, duration: 250}", *ngFor="let c of _public.content; let i = index")
+        .title
+          i.dropdown.icon
+          | {{c.title}}
+        .content  
+          a {{c.meta}}
+        
+        
+        
     // MAPS
-    #id-maps.ui.container
+    #id-maps.ui.container([ngClass]='{true: "hide"}[_public.isMobile]')
       .space-block-50
       .ui.segment
         h2.ui.header Maps
@@ -84,9 +101,22 @@
                 .card(style='width: 100%')
                   img.img-responsive(src='assets/images/home_map_graphic-lg.jpeg') 
 
+    // MAPS (MOBILE)
+    #id-maps([ngClass]='{false: "hide"}[_public.isMobile]')
+      .space-block-50
+      center
+        h2.ui.header Maps
+        .space-block-10
+      .ui.styled.accordion(ui-accordian [options]="{exclusive: false, duration: 250}")
+        .title
+          i.dropdown.icon
+          | Find Stuff to do in Oregon!
+        .content  
+          img.img-responsive(src='assets/images/home_map_graphic-lg.jpeg') 
+
     
     // FEATURES
-    #id-features.ui.container
+    #id-features.ui.container([ngClass]='{true: "hide"}[_public.isMobile]')
       .space-block-50
       .ui.segment
         h2.ui.header Features
@@ -105,8 +135,23 @@
                   | Rating: 
                   .ui.star.rating(ui-rating [options]="{initialRating: c.stars, maxRating: 10, interactive: true}")
 
+    // MAPS (MOBILE)
+    #id-features([ngClass]='{false: "hide"}[_public.isMobile]')
+      .space-block-50
+      center
+        h2.ui.header Features
+        .space-block-10
+      .ui.styled.accordion(ui-accordian [options]="{exclusive: false, duration: 250}", *ngFor="let c of _public.features")
+        .title
+          i.dropdown.icon
+          | {{c.title}}
+        .content  
+          a {{c.meta}}
+          hr
+          .ui.star.rating(ui-rating [options]="{initialRating: c.stars, maxRating: 10, interactive: true}")
+
     // PAYMENTS
-    #id-payments.ui.container
+    #id-payments.ui.container([ngClass]='{true: "hide"}[_public.isMobile]')
       .space-block-50
       .ui.segment
         h2.ui.header Payments
@@ -150,8 +195,53 @@
                     br
                     br   
     
+    
+    // PAYMENTS (MOBILE)
+    #id-payments([ngClass]='{false: "hide"}[_public.isMobile]')
+      .space-block-50
+      center
+        h2.ui.header Payments
+        .space-block-10
+      .ui.styled.accordion(ui-accordian [options]="{exclusive: false, duration: 250}")
+        .title
+          i.dropdown.icon
+          |     Business
+        .content          
+            small
+              a(*ngFor="let c of _public.payments.business")
+                i.fa.fa-file
+                &nbsp;&nbsp;{{c.title}}
+                hr
+        .title
+          i.dropdown.icon
+          |     Courts
+        .content          
+            small
+              a(*ngFor="let c of _public.payments.courts")
+                i.fa.fa-file
+                &nbsp;&nbsp;{{c.title}}
+                hr                
+        .title
+          i.dropdown.icon
+          |     Licensing
+        .content          
+            small
+              a(*ngFor="let c of _public.payments.licensing")
+                i.fa.fa-file
+                &nbsp;&nbsp;{{c.title}}
+                hr    
+        .title
+          i.dropdown.icon
+          |     Courts
+        .content          
+            small
+              a(*ngFor="let c of _public.payments.courts")
+                i.fa.fa-file
+                &nbsp;&nbsp;{{c.title}}
+                hr                                     
+    
     // LICENSES
-    #id-licenses.ui.container
+    #id-licenses.ui.container([ngClass]='{true: "hide"}[_public.isMobile]')
       .space-block-50
       .ui.segment
         h2.ui.header Licenses
@@ -195,9 +285,53 @@
                     br
                     br   
 
+    // PAYMENTS (MOBILE)
+    #id-licenses([ngClass]='{false: "hide"}[_public.isMobile]')
+      .space-block-50
+      center
+        h2.ui.header Licenses
+        .space-block-10
+      .ui.styled.accordion(ui-accordian [options]="{exclusive: false, duration: 250}")
+        .title
+          i.dropdown.icon
+          |     DMV
+        .content          
+            small
+              a(*ngFor="let c of _public.licenses.dmv")
+                i.fa.fa-file
+                &nbsp;&nbsp;{{c.title}}
+                hr
+        .title
+          i.dropdown.icon
+          |     Forms
+        .content          
+            small
+              a(*ngFor="let c of _public.licenses.forms")
+                i.fa.fa-file
+                &nbsp;&nbsp;{{c.title}}
+                hr                
+        .title
+          i.dropdown.icon
+          |     Business
+        .content          
+            small
+              a(*ngFor="let c of _public.licenses.business")
+                i.fa.fa-file
+                &nbsp;&nbsp;{{c.title}}
+                hr    
+        .title
+          i.dropdown.icon
+          |     Recreation
+        .content          
+            small
+              a(*ngFor="let c of _public.licenses.recreation")
+                i.fa.fa-file
+                &nbsp;&nbsp;{{c.title}}
+                hr    
+
     
     // DRIVERS
-    #id-drivers.ui.container
+    #id-drivers.ui.container([ngClass]='{true: "hide"}[_public.isMobile]')
       .space-block-50
       .ui.segment
         h2.ui.header Drivers
@@ -213,37 +347,82 @@
                   a.cursor Application for Title and Registration
                   p Use this form to apply for title and registration for your vehicle.
               .column
-                h2 DMV
+                h2 Forms
                 h5
                   a.cursor(*ngFor="let c of _public.drivers.forms")
                     | {{c.title}}
                     br
                     br
                 hr
-                h2 Forms
+                h2 Recreation
                 h5
                   a.cursor(*ngFor="let c of _public.drivers.recreation")
                     | {{c.title}}
                     br
                     br                  
               .column
-                h2 Business
+                h2 Information
                 h5
                   a.cursor(*ngFor="let c of _public.drivers.information")
                     | {{c.title}}
                     br
                     br
                 hr
-                h2 Recreation
+                h2 Travel
                 h5
                   a.cursor(*ngFor="let c of _public.drivers.travel")
                     | {{c.title}}
                     br
                     br   
     
+    // DRIVERS (MOBILE)
+    #id-drivers([ngClass]='{false: "hide"}[_public.isMobile]')
+      .space-block-50
+      center
+        h2.ui.header Drivers
+        .space-block-10
+      .ui.styled.accordion(ui-accordian [options]="{exclusive: false, duration: 250}")
+        .title
+          i.dropdown.icon
+          |     Forms
+        .content          
+            small
+              a(*ngFor="let c of _public.drivers.forms")
+                i.fa.fa-file
+                &nbsp;&nbsp;{{c.title}}
+                hr
+        .title
+          i.dropdown.icon
+          |     Recreation
+        .content          
+            small
+              a(*ngFor="let c of _public.drivers.recreation")
+                i.fa.fa-file
+                &nbsp;&nbsp;{{c.title}}
+                hr                
+        .title
+          i.dropdown.icon
+          |     Information
+        .content          
+            small
+              a(*ngFor="let c of _public.drivers.information")
+                i.fa.fa-file
+                &nbsp;&nbsp;{{c.title}}
+                hr    
+        .title
+          i.dropdown.icon
+          |     Travel
+        .content          
+            small
+              a(*ngFor="let c of _public.drivers.travel")
+                i.fa.fa-file
+                &nbsp;&nbsp;{{c.title}}
+                hr    
+    
+    
     
     // MyOregon
-    #id-myOregon.ui.container
+    #id-myOregon.ui.container([ngClass]='{true: "hide"}[_public.isMobile]')
       .space-block-50
       .ui.segment
         h2.ui.header #myOregon  
@@ -252,7 +431,7 @@
         br
         .ui.three.column.grid.stackable.doubling        
             .column(*ngFor="let c of _public.myOregon; let i = index")
-              .ui.card.fluid.cursor(ui-modal [options]="{selector: '#image-viewer'}", (click)="setModalImage(c)")
+              .ui.card.fluid.cursor(ui-modal-action [options]="{selector: '#image-viewer', transition: 'fly left'}", (click)="setModalImage(c)")
                 .image
                   img.img-responsive(src='{{c.image}}')
                 .content(style='height: 75px')
@@ -260,10 +439,24 @@
                   .meta
                     span.date Taken by: 
                       strong {{c.credit}}
-    .space-block-100
 
+    // #myOregon (MOBILE)
+    #id-myOregon([ngClass]='{false: "hide"}[_public.isMobile]')
+      .space-block-50
+      center
+        h2.ui.header #myOregon
+        .space-block-10
+      .ui.styled.accordion(ui-accordian [options]="{exclusive: false, duration: 250}")
+        .title 
+          i.dropdown.icon          
+          | Check it out!
+        .content  
+          .image(*ngFor="let c of _public.myOregon; let i = index", ui-modal-action [options]="{selector: '#image-viewer', transition: 'fly left'}", (click)="setModalImage(c)")
+            | {{c.title}}
+            img.img-responsive(src='{{c.image}}')
 
-
+  .space-block-100
+    
   // FOOTER  
   .ui.inverted.vertical.footer.segment.bg-green
     .ui.center.aligned.container
@@ -281,13 +474,13 @@
 
 
 
-  #image-viewer.ui.modal
+  #image-viewer.ui.modal(ui-modal [options]="{closable: false, transition: 'fly left', duration: 250}")
     i.close.fa.fa-close
     .header {{modalImage.title}}
       small &nbsp; by
         strong &nbsp; {{modalImage.credit}} 
     .image.content
       .image
-        img(src="{{modalImage.image}}")
+        img.img-responsive(src="{{modalImage.image}}")
       .description
         | Description of image

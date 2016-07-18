@@ -1,12 +1,29 @@
 import {Component} from '@angular/core';
-import {uiSemanticRating} from '../../directives/semantic-ui-rating/rating.directive';
-import {uiSemanticDimmer} from '../../directives/semantic-ui-dimmer/dimmer.directive'
-import {uiSemanticDimmerButton} from '../../directives/semantic-ui-dimmer/dimmer.directive';
-import {uiSemanticModal} from '../../directives/semantic-ui-modal/modal.directive'
-import {uiSemanticSidebar} from '../../directives/semantic-ui-sidebar/sidebar.directive'
+
+import {uiSemanticPopup,
+        uiSemanticEmbed,
+        uiSemanticAccordian,
+        uiSemanticRating,
+        uiSemanticDimmer,
+        uiSemanticDimmerButton,
+        uiSemanticModal,
+        uiSemanticModalAction,
+        uiSemanticSidebar,
+        uiSemanticCheckbox,
+        uiSemanticDropdown,
+        uiSemanticTab,
+        uiSemanticProgress,
+        uiSemanticProgressButton,
+        uiSemanticTransitionOnload,
+        uiSemanticTransitionButton,
+        uiSemanticTransitionHover,
+        uiSemanticVisibility} from '../../directives/semantic-ui-ALL/semantic-ui.directive';
+
 
 declare var location:{};
 declare var $:any;
+declare var _root:any;
+
 
 @Component({
     selector: 'my-app',
@@ -16,7 +33,23 @@ declare var $:any;
         uiSemanticDimmer,
         uiSemanticDimmerButton,
         uiSemanticModal,
-        uiSemanticSidebar
+        uiSemanticModalAction,
+        uiSemanticSidebar,
+        uiSemanticAccordian,
+        uiSemanticCheckbox,
+        uiSemanticDropdown,
+        uiSemanticEmbed,
+        uiSemanticPopup,
+        uiSemanticProgress,
+        uiSemanticProgressButton,
+        uiSemanticTab,
+
+        uiSemanticTransitionOnload,
+        uiSemanticTransitionButton,
+        uiSemanticTransitionHover,
+
+        uiSemanticVisibility
+
     ],
     styles: [`
 
@@ -59,9 +92,12 @@ declare var $:any;
         }
 
         #image-viewer{
-            margin-top: -300px!important;
+            min-height: 500px!important;
         }
 
+        .hide{
+            display: none;
+        }
 
     `]
 })
@@ -69,6 +105,7 @@ export class AppComponent {
 
     //----------------------------
     public _public = {
+            isMobile: _root.globals.isMobile,
             navBar:[
                 {
                     title: "Home",
@@ -324,15 +361,15 @@ export class AppComponent {
         },
 
         myOregon:[
-            {title: "Downtown 1", image: "https://lorempixel.com/400/400/city/1", credit: "Mike Tyson"},
-            {title: "Downtown 2", image: "https://lorempixel.com/400/400/city/2", credit: "Little Mac"},
-            {title: "Downtown 3", image: "https://lorempixel.com/400/400/city/3", credit: "Bald Bull"},
-            {title: "Nature 1", image: "https://lorempixel.com/400/400/nature/1", credit: "King Hippo"},
-            {title: "Nature 2", image: "https://lorempixel.com/400/400/nature/2", credit: "Madclown"},
-            {title: "Nature 3", image: "https://lorempixel.com/400/400/nature/3", credit: "Mr Dream"},
-            {title: "Food 1", image: "https://lorempixel.com/400/400/food/1", credit: "The Sandman"},
-            {title: "Food 2", image: "https://lorempixel.com/400/400/food/2", credit: "Glass Joe"},
-            {title: "Food 3", image: "https://lorempixel.com/400/400/food/3", credit: "Donkey Kong"},
+            {title: "Downtown 1", image: "http://lorempixel.com/400/400/city/1", credit: "Mike Tyson"},
+            {title: "Downtown 2", image: "http://lorempixel.com/400/400/city/2", credit: "Little Mac"},
+            {title: "Downtown 3", image: "http://lorempixel.com/400/400/city/3", credit: "Bald Bull"},
+            {title: "Nature 1", image: "http://lorempixel.com/400/400/nature/1", credit: "King Hippo"},
+            {title: "Nature 2", image: "http://lorempixel.com/400/400/nature/2", credit: "Madclown"},
+            {title: "Nature 3", image: "http://lorempixel.com/400/400/nature/3", credit: "Mr Dream"},
+            {title: "Food 1", image: "http://lorempixel.com/400/400/food/1", credit: "The Sandman"},
+            {title: "Food 2", image: "http://lorempixel.com/400/400/food/2", credit: "Glass Joe"},
+            {title: "Food 3", image: "http://lorempixel.com/400/400/food/3", credit: "Donkey Kong"},
         ],
 
 

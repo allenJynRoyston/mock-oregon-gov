@@ -9,15 +9,12 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
-var rating_directive_1 = require('../../directives/semantic-ui-rating/rating.directive');
-var dimmer_directive_1 = require('../../directives/semantic-ui-dimmer/dimmer.directive');
-var dimmer_directive_2 = require('../../directives/semantic-ui-dimmer/dimmer.directive');
-var modal_directive_1 = require('../../directives/semantic-ui-modal/modal.directive');
-var sidebar_directive_1 = require('../../directives/semantic-ui-sidebar/sidebar.directive');
+var semantic_ui_directive_1 = require('../../directives/semantic-ui-ALL/semantic-ui.directive');
 var AppComponent = (function () {
     function AppComponent() {
         //----------------------------
         this._public = {
+            isMobile: _root.globals.isMobile,
             navBar: [
                 {
                     title: "Home",
@@ -267,15 +264,15 @@ var AppComponent = (function () {
                 ]
             },
             myOregon: [
-                { title: "Downtown 1", image: "https://lorempixel.com/400/400/city/1", credit: "Mike Tyson" },
-                { title: "Downtown 2", image: "https://lorempixel.com/400/400/city/2", credit: "Little Mac" },
-                { title: "Downtown 3", image: "https://lorempixel.com/400/400/city/3", credit: "Bald Bull" },
-                { title: "Nature 1", image: "https://lorempixel.com/400/400/nature/1", credit: "King Hippo" },
-                { title: "Nature 2", image: "https://lorempixel.com/400/400/nature/2", credit: "Madclown" },
-                { title: "Nature 3", image: "https://lorempixel.com/400/400/nature/3", credit: "Mr Dream" },
-                { title: "Food 1", image: "https://lorempixel.com/400/400/food/1", credit: "The Sandman" },
-                { title: "Food 2", image: "https://lorempixel.com/400/400/food/2", credit: "Glass Joe" },
-                { title: "Food 3", image: "https://lorempixel.com/400/400/food/3", credit: "Donkey Kong" },
+                { title: "Downtown 1", image: "http://lorempixel.com/400/400/city/1", credit: "Mike Tyson" },
+                { title: "Downtown 2", image: "http://lorempixel.com/400/400/city/2", credit: "Little Mac" },
+                { title: "Downtown 3", image: "http://lorempixel.com/400/400/city/3", credit: "Bald Bull" },
+                { title: "Nature 1", image: "http://lorempixel.com/400/400/nature/1", credit: "King Hippo" },
+                { title: "Nature 2", image: "http://lorempixel.com/400/400/nature/2", credit: "Madclown" },
+                { title: "Nature 3", image: "http://lorempixel.com/400/400/nature/3", credit: "Mr Dream" },
+                { title: "Food 1", image: "http://lorempixel.com/400/400/food/1", credit: "The Sandman" },
+                { title: "Food 2", image: "http://lorempixel.com/400/400/food/2", credit: "Glass Joe" },
+                { title: "Food 3", image: "http://lorempixel.com/400/400/food/3", credit: "Donkey Kong" },
             ],
             content: [
                 { title: "Find Jobs", meta: "Apply for state jobs in Oregon." },
@@ -305,13 +302,26 @@ var AppComponent = (function () {
             selector: 'my-app',
             templateUrl: './app/components/myApp/layout.html',
             directives: [
-                rating_directive_1.uiSemanticRating,
-                dimmer_directive_1.uiSemanticDimmer,
-                dimmer_directive_2.uiSemanticDimmerButton,
-                modal_directive_1.uiSemanticModal,
-                sidebar_directive_1.uiSemanticSidebar
+                semantic_ui_directive_1.uiSemanticRating,
+                semantic_ui_directive_1.uiSemanticDimmer,
+                semantic_ui_directive_1.uiSemanticDimmerButton,
+                semantic_ui_directive_1.uiSemanticModal,
+                semantic_ui_directive_1.uiSemanticModalAction,
+                semantic_ui_directive_1.uiSemanticSidebar,
+                semantic_ui_directive_1.uiSemanticAccordian,
+                semantic_ui_directive_1.uiSemanticCheckbox,
+                semantic_ui_directive_1.uiSemanticDropdown,
+                semantic_ui_directive_1.uiSemanticEmbed,
+                semantic_ui_directive_1.uiSemanticPopup,
+                semantic_ui_directive_1.uiSemanticProgress,
+                semantic_ui_directive_1.uiSemanticProgressButton,
+                semantic_ui_directive_1.uiSemanticTab,
+                semantic_ui_directive_1.uiSemanticTransitionOnload,
+                semantic_ui_directive_1.uiSemanticTransitionButton,
+                semantic_ui_directive_1.uiSemanticTransitionHover,
+                semantic_ui_directive_1.uiSemanticVisibility
             ],
-            styles: ["\n\n\n        .bg-green{\n            background-color: #344032!important;\n        }\n\n        .footer{\n            z-index: 50!important;\n        }\n        #body-content{\n            z-index: 20\n        }\n\n        #home-main-menu{\n            position: fixed;\n            top: 0;\n            left: 0;\n            width: auto;\n            height: 100%;\n            padding-top: 90px;\n            padding-left: 30px;\n            z-index: 10;\n        }\n\n        #help-bar{\n            position: fixed;\n            top: 0;\n            right: 0;\n            width: 200px;\n            height: 120px;\n            z-index: 100;\n        }\n\n        .help-bar-input{\n            position: absolute;\n            bottom: 0px;\n            right: 10px\n        }\n\n        #image-viewer{\n            margin-top: -300px!important;\n        }\n\n\n    "]
+            styles: ["\n\n\n        .bg-green{\n            background-color: #344032!important;\n        }\n\n        .footer{\n            z-index: 50!important;\n        }\n        #body-content{\n            z-index: 20\n        }\n\n        #home-main-menu{\n            position: fixed;\n            top: 0;\n            left: 0;\n            width: auto;\n            height: 100%;\n            padding-top: 90px;\n            padding-left: 30px;\n            z-index: 10;\n        }\n\n        #help-bar{\n            position: fixed;\n            top: 0;\n            right: 0;\n            width: 200px;\n            height: 120px;\n            z-index: 100;\n        }\n\n        .help-bar-input{\n            position: absolute;\n            bottom: 0px;\n            right: 10px\n        }\n\n        #image-viewer{\n            min-height: 500px!important;\n        }\n\n        .hide{\n            display: none;\n        }\n\n    "]
         }), 
         __metadata('design:paramtypes', [])
     ], AppComponent);
