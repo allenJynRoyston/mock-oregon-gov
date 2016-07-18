@@ -7,6 +7,7 @@ Technologies used:
   - Jade templating
   - Semantic-UI Framework
   - Typescript
+  - NPM
 
 Install instructions:
   - Clone this repo
