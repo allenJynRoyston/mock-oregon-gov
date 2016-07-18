@@ -1,9 +1,5 @@
-# Express / Angular 2 Easy setup
+# Mock Oregon.gov website
 
-### Why?
-
-Quite simply, Express is awesome and Angular 2 is awesome, but getting them to work isn't as fluid as you'd think it would be.  This package eliminates all the fuss and only includes the bare basics so you can customize your project the way you like.  Think of it like a clean Windows install; all the functionality you'd want without any of the bloatware.
- 
 Install includes:
   - Express 4.0 
   - Angular 2 
@@ -54,15 +50,9 @@ $ npm start
 ```sh
 http://localhost:3000/
 ```
-  - A page that states:  "MEAN stack works!" and you're good!
+  - Page should load!
 
-### Easy Deploy with Heroku
-Ensure that you have a valid, working Heroku repository.  Copy/paste/clone this repo into it.  Then:
-```sh
-$ git add . 
-$ git commit -m "it works!"
-$ git push heroku master
-```
+
 
 ### Additional stuff
 - Grunt (if you're using it) will watch for changes on any html/css/js and refresh the browser automatically.
